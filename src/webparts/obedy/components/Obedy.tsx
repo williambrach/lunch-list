@@ -12,18 +12,34 @@ import Yummy from "./Restaurants/Yummy";
 
 
 export default class Obedy extends React.Component<IObedyProps, {}> {
+
+  getDate = () => {
+    const dayNum = new Date(Date.now());
+    var options = { weekday: 'long'};
+    var day = new Intl.DateTimeFormat('en-GB', options).format(dayNum);
+    return day+" "+dayNum.getDate()+"."+dayNum.getMonth()+"."+dayNum.getFullYear()
+  }
+
   public render(): React.ReactElement<IObedyProps> {
     return (
       <div className={styles.obedy}>
         <div className={styles.container}>
           <div className={styles.row}>
             <div className={styles.column}>
-              <span className={styles.title}>Welcome to SharePoint!</span>
-              <p className={styles.subTitle}>Customize SharePoint experiences using Web Parts.</p>
-              <p className={styles.description}>{escape(this.props.description)}</p>
+            <div className={styles.row}>
+            <span className={styles.title}>Kam na obed? 🤔 </span>
+              </div>
+              <div className={styles.row}>
+              <span className={styles.subTitle}>Dnes je : {this.getDate()}</span>
+              <div>
               <a href="https://aka.ms/spfx" className={styles.button}>
-                <span className={styles.label}>Learn more</span>
+                <span className={styles.label}>Update Obedov</span>
               </a>
+              </div>
+
+              </div>
+
+
             </div>
           </div>
           <div className={styles.row}>
