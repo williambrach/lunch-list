@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "lunch-list-client-side-solution",
+    "id": "dc783ffe-887a-4e30-ac17-a07ec41f0e66",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": true
+  },
+  "paths": {
+    "zippedPackage": "solution/lunch-list.sppkg"
+  }
+}
