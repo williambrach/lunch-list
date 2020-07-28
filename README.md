@@ -33,4 +33,5 @@ gulp package-solution - TODO
 4. Yummy - https://yummycantina.sk/wp-content/uploads/2020/07/27-31.7.2020-1.pdf
 5. Rebecca - https://www.facebook.com/pages/category/Restaurant/Bufet-Rebecca-373850779712228/
 6. Hanoi Garden - http://www.hanoigarden.sk/prievozska.html
+7. U Oravca - https://menucka.sk/denne-menu/bratislava/gurmansky-dvor-u-oravca
 

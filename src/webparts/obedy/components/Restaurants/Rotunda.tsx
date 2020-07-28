@@ -19,9 +19,7 @@ export default class Rotunda extends React.Component {
         <div className={styles.container}>
           <div className={styles.row}>
             <div className={styles.column}>
-              <span className={styles.title}>Rotunda</span>
-              <div id="1" onLoad={this.handleClick}>
-              </div>
+              <span className={styles.title}>🏰 Rotunda</span>
             </div>
           </div>
         </div>

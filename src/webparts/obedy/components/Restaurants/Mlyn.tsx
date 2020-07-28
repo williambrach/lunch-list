@@ -10,7 +10,7 @@ export default class Mlyn extends React.Component {
         <div className={styles.container}>
           <div className={styles.row}>
             <div className={styles.column}>
-              <span className={styles.title}>Mlyn</span>
+              <span className={styles.title}>🏡 Mlyn</span>
             </div>
           </div>
         </div>
