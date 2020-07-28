@@ -74,9 +74,12 @@
 
   .rowRestaurants{
     display: flex;
+    flex : 1;
+    background-color: $ms-color-themeDark;
   }
 
   .colRestaurants {
-    flex: 50%;
+    display: flex;
+    flex :1;
   }
 }

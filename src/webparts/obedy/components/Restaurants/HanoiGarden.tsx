@@ -34,7 +34,7 @@ export default class HanoiGarden extends React.Component {
         <div className={styles.container}>
           <div className={styles.row}>
             <div className={styles.column}>
-              <span className={styles.title}>HanoiGarden</span>
+              <span className={styles.title}>🌸 HanoiGarden</span>
 
               <embed src={this.getMenuByDate(1)} width="100%" height="600px">
                 </embed>
