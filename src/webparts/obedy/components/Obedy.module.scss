@@ -71,4 +71,12 @@
       display: inline-block;
     }
   }
+
+  .rowRestaurants{
+    display: flex;
+  }
+
+  .colRestaurants {
+    flex: 50%;
+  }
 }

@@ -26,26 +26,21 @@ export default class Obedy extends React.Component<IObedyProps, {}> {
               </a>
             </div>
           </div>
-          <div className={styles.row}>
-            <div className={styles.column}>
-              <Rotunda/>
+            <div>
+              <div className={styles.rowRestaurants}>
+                <div className={styles.colRestaurants}>
+                  <Rotunda />
+                </div>
+                <div className={styles.colRestaurants}>
+                  <Mlyn />
+                </div>
+              </div>
+
+              <BeQuick />
+              <Yummy />
+              <Rebecca />
+              <HanoiGarden />
             </div>
-            <div className={styles.column}>
-              <Mlyn/>
-            </div>
-          </div>
-          <div className={styles.row}>
-            <BeQuick/>
-          </div>
-          <div className={styles.row}>
-            <Yummy/>
-          </div>
-          <div className={styles.row}>
-            <Rebecca/>
-          </div>
-          <div className={styles.row}>
-            <HanoiGarden/>
-          </div>
         </div>
       </div>
     );
