@@ -2,6 +2,7 @@ import * as React from 'react';
 import styles from '../Obedy.module.scss';
 import { IObedyProps } from '../IObedyProps';
 import { escape } from '@microsoft/sp-lodash-subset';
+import InfoBoard from '../InfoBoard';
 
 export default class Yummy extends React.Component {
   public render(): React.ReactElement {
@@ -11,6 +12,10 @@ export default class Yummy extends React.Component {
           <div className={styles.row}>
             <div className={styles.column}>
               <span className={styles.title}>🤮 Yummy</span>
+              </div>
+              <InfoBoard distance="Hned dole " link="" time="1"/>
+
+              <div className={styles.column}>
               <iframe src="https://yummycantina.sk/wp-content/uploads/2020/07/27-31.7.2020-1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="630px" scrolling="no">
                 </iframe>
 
