@@ -51,33 +51,25 @@ export default class Obedy extends React.Component<IObedyProps, {}> {
                 <div className={styles.row}>
                   <a href="https://aka.ms/spfx" className={styles.button}>
                     <span className={styles.label}>Update Obedov</span>
+
                   </a>
-                </div>
-              </div>
-
-
-            </div>
-          </div>
-          <div>
-            <div className={styles.rowRestaurants}>
-              <div className={styles.colRestaurants}>
-                <Rotunda />
-              </div>
-              <div className={styles.colRestaurants}>
-                <Mlyn />
-              </div>
-              <div className={styles.colRestaurants}>
-                <Oravec />
               </div>
             </div>
 
-            <BeQuick />
-            <Yummy />
-            <Rebecca />
-            <HanoiGarden />
+
           </div>
         </div>
+        <div>
+          <Rotunda />
+          <Mlyn />
+          <Oravec />
+          <BeQuick />
+          <Yummy />
+          <Rebecca />
+          <HanoiGarden />
+        </div>
       </div>
+      </div >
     );
   }
 }
