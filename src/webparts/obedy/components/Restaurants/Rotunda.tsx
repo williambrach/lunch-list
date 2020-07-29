@@ -23,7 +23,7 @@ export default class Rotunda extends React.Component {
      //(document.getElementById("1")).load('http://www.mywebsite.com/portfolio.php', document.getElementsByClassName("dnesne_menu"));
 
      //return this.testVar;
-     
+
 
      var iframe = document.getElementById("1");
      var elmnt = iframe.contentWindow.document.getElementsByClassName("dnesne_menu")[0];
@@ -31,7 +31,7 @@ export default class Rotunda extends React.Component {
      elmnt.style.display = "block";
 
      <iframe src="     https://restauracie.sme.sk/export/resmenu/2316" width="100%" height="600px">
-              </iframe> 
+              </iframe>
 
 
   }*/
@@ -44,7 +44,7 @@ export default class Rotunda extends React.Component {
             <div className={styles.column}>
               <span className={styles.title}>🏰 Rotunda</span>
               <div className={styles.iframeRotundaDiv}>
-                <iframe src="https://restauracie.sme.sk/restauracia/pizzeria-rotunda_2316-ruzinov_2980/denne-menu" className={styles.iframeRotunda} scrolling="no">
+                <iframe src="https://restauracie.sme.sk/restauracia/pizzeria-rotunda_2316-ruzinov_2980/denne-menu" className={styles.iframeRotunda} scrolling="no" sandbox="">
                   </iframe>
 
               </div>

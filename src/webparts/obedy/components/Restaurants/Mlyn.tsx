@@ -12,7 +12,7 @@ export default class Mlyn extends React.Component {
             <div className={styles.column}>
               <span className={styles.title}>🏡 Mlyn</span>
               <div className={styles.iframeMlynDiv}>
-                <iframe scrolling="no" src="https://restauracie.sme.sk/restauracia/mlyn-restaurant_1745-ruzinov_2980/denne-menu" className={styles.iframeMlyn}>
+                <iframe scrolling="no" src="https://restauracie.sme.sk/restauracia/mlyn-restaurant_1745-ruzinov_2980/denne-menu" className={styles.iframeMlyn} sandbox="">
                   </iframe>
             </div>
           </div>
