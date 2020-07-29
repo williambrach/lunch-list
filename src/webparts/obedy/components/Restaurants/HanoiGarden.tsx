@@ -2,6 +2,7 @@ import * as React from 'react';
 import styles from '../Obedy.module.scss';
 import { IObedyProps } from '../IObedyProps';
 import { escape } from '@microsoft/sp-lodash-subset';
+import InfoBoard from '../InfoBoard';
 
 export default class HanoiGarden extends React.Component {
 
@@ -35,7 +36,10 @@ export default class HanoiGarden extends React.Component {
           <div className={styles.row}>
             <div className={styles.column}>
               <span className={styles.title}>🌸 HanoiGarden</span>
+            </div>
+            <InfoBoard distance="1,3" link="https://goo.gl/maps/cAL1z435kUgJPgnP6" time="17"/>
 
+            <div className={styles.column}>
               <iframe src={this.getMenuByDate(1)} width="100%" height="630px" scrolling="no">
                 </iframe>
                 <iframe src={this.getMenuByDate(2)} width="100%" height="630px" scrolling="no">

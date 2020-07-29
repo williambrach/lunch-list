@@ -10,7 +10,7 @@ import Rebecca from "./Restaurants/Rebecca";
 import Rotunda from "./Restaurants/Rotunda";
 import Yummy from "./Restaurants/Yummy";
 import Oravec from "./Restaurants/Oravec";
-
+import Veglife from "./Restaurants/VegLife"
 
 
 export default class Obedy extends React.Component<IObedyProps, {}> {
@@ -64,8 +64,9 @@ export default class Obedy extends React.Component<IObedyProps, {}> {
           <Mlyn />
           <Oravec />
           <BeQuick />
-          <Yummy />
+          <Veglife />
           <Rebecca />
+          <Yummy />
           <HanoiGarden />
         </div>
       </div>
