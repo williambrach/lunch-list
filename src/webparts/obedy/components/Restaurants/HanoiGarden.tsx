@@ -21,10 +21,10 @@ export default class HanoiGarden extends React.Component {
 
 
     if (type == 1){
-      return "../src/assets/hanoi_"+day+"_1.pdf"
+      return "../src/assets/hanoi_"+day+"_1.pdf#toolbar=0&navpanes=0&scrollbar=0"
     }
     else {
-      return "../src/assets/hanoi_"+day+"_2.pdf"
+      return "../src/assets/hanoi_"+day+"_2.pdf#toolbar=0&navpanes=0&scrollbar=0"
     }
 }
 
@@ -36,10 +36,10 @@ export default class HanoiGarden extends React.Component {
             <div className={styles.column}>
               <span className={styles.title}>🌸 HanoiGarden</span>
 
-              <embed src={this.getMenuByDate(1)} width="100%" height="600px">
-                </embed>
-                <embed src={this.getMenuByDate(2)} width="100%" height="600px">
-                </embed>
+              <iframe src={this.getMenuByDate(1)} width="100%" height="630px" scrolling="no">
+                </iframe>
+                <iframe src={this.getMenuByDate(2)} width="100%" height="630px" scrolling="no">
+                </iframe>
             </div>
           </div>
         </div>
