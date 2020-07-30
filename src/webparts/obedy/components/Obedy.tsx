@@ -36,24 +36,17 @@ export default class Obedy extends React.Component<IObedyProps, {}> {
         <div className={styles.container}>
           <div className={styles.row}>
             <div className={styles.column}>
-              <div className={styles.row}>
-                <span className={styles.title}>Kam na obed? 🤔 </span>
+              <div className={styles.headerRow}>
+                <span className={styles.headerText}>Kam na obed? 🤔 </span>
               </div>
               <div className={styles.row}>
                 <span className={styles.subTitle}>Dátum : {this.getDate()}</span>
                 <div>
-
-
                 </div>
-                <div className={styles.row}>
-                  <a href="https://aka.ms/spfx" className={styles.button}>
-                    <span className={styles.label}>{this.props.rebeccaLink}</span>
-
-                  </a>
               </div>
+
+
             </div>
-
-
           </div>
         </div>
         <div>
@@ -67,7 +60,6 @@ export default class Obedy extends React.Component<IObedyProps, {}> {
           <HanoiGarden />
         </div>
       </div>
-      </div >
     );
   }
 }
