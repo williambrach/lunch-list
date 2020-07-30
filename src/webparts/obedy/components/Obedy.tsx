@@ -45,31 +45,23 @@ export default class Obedy extends React.Component<IObedyProps, {}> {
               <div className={styles.row}>
                 <span className={styles.subTitle}>Dátum : {this.getDate()}</span>
                 <div>
-
-
                 </div>
-                <div className={styles.row}>
-                  <a href="https://aka.ms/spfx" className={styles.button}>
-                    <span className={styles.label}>Update Obedov</span>
-
-                  </a>
               </div>
+
+
             </div>
-
-
+          </div>
+          <div>
+            <Rotunda />
+            <Mlyn />
+            <Oravec />
+            <BeQuick />
+            <Veglife />
+            <Rebecca />
+            <Yummy />
+            <HanoiGarden />
           </div>
         </div>
-        <div>
-          <Rotunda />
-          <Mlyn />
-          <Oravec />
-          <BeQuick />
-          <Veglife />
-          <Rebecca />
-          <Yummy />
-          <HanoiGarden />
-        </div>
-      </div>
       </div >
     );
   }
