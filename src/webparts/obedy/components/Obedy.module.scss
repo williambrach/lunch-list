@@ -70,7 +70,7 @@ $base-color: $ms-color-themeDark;
     text-align: center;
     cursor: pointer;
     display: inline-block;
-    padding: 0px 16px;
+    padding:0px 16px;
     margin: 16px 0px;
     .label {
       font-weight: $ms-font-weight-semibold;
@@ -95,7 +95,7 @@ $base-color: $ms-color-themeDark;
   }
 
   .iframeOravec {
-    border: 0px none; margin-left: 10px; height: 1100px; margin-top: -700px; width: 100%;
+    border: 0px none; height: 1100px; margin-top: -700px; width: 100%;
 
   }
 
@@ -106,7 +106,7 @@ $base-color: $ms-color-themeDark;
   }
 
   .iframeRotunda {
-    border: 0px none; margin-left: 10px; height: 850px; margin-top: -450px; width: 100%;
+    border: 0px none; height: 850px; margin-top: -450px; width: 100%;
 
   }
   .iframeRotundaDiv{
@@ -121,13 +121,13 @@ $base-color: $ms-color-themeDark;
     margin: 15px auto;
   }
   .iframeVeglife {
-    border: 0px none; margin-left: 10px; height: 980px; margin-top: -580px; width: 100%;
+    border: 0px none; height: 980px; margin-top: -580px; width: 100%;
   }
   .iframeMlyn {
-    border: 0px none; margin-left: 10px; height: 950px; margin-top: -550px; width: 100%;
+    border: 0px none; height: 950px; margin-top: -550px; width: 100%;
 
   }
   .rectangle{
-    background-color: $base-color; position: relative; display: block; height: 80px; width: 466px; bottom: 80px; left: 10px;
+    background-color: $base-color; position: relative; display: block; height: 80px; width: 466px; bottom: 80px; left: 0px;
   }
 }
