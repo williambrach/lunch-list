@@ -39,13 +39,11 @@ export default class Obedy extends React.Component<IObedyProps, {}> {
               <div className={styles.headerRow}>
                 <span className={styles.headerText}>Kam na obed? 🤔 </span>
               </div>
-              <div className={styles.row}>
+              <div>
                 <span className={styles.subTitle}>Dátum : {this.getDate()}</span>
                 <div>
                 </div>
               </div>
-
-
             </div>
           </div>
         </div>
@@ -55,7 +53,7 @@ export default class Obedy extends React.Component<IObedyProps, {}> {
           <Oravec />
           <BeQuick />
           <Veglife />
-          <Rebecca  link={this.props.rebeccaLink}/>
+          <Rebecca link={this.props.rebeccaLink} />
           <Yummy />
           <HanoiGarden />
         </div>
