@@ -70,8 +70,8 @@ $base-color: $ms-color-themeDark;
     text-align: center;
     cursor: pointer;
     display: inline-block;
-    padding: 0 16px;
-
+    padding: 0px 16px;
+    margin: 16px 0px;
     .label {
       font-weight: $ms-font-weight-semibold;
       font-size: $ms-font-size-m;
