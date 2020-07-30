@@ -5,46 +5,6 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import InfoBoard from '../InfoBoard';
 
 export default class BeQuick extends React.Component {
-
-    handleClick () {
-
-      const dayNum = new Date(Date.now());
-
-      let day = dayNum.getDay();
-
-
-      var frame = document.getElementsByTagName("iframe")[0];
-
-
-      switch(day){
-        case 1:
-          frame.style.height="950px";
-          frame.style.marginTop="-550px";
-          break;
-        case 2:
-          document.getElementById("1").style.height="950px";
-          document.getElementById("1").style.marginTop="-550px";
-          break;
-        case 3:
-          frame.style.height="100px";
-          frame.scrollTo(0, 200);
-          break;
-        case 4:
-          document.getElementById("1").style.height="950px";
-          document.getElementById("1").style.marginTop="-150px";
-          break;
-        case 5:
-          document.getElementById("1").style.height="950px";
-          document.getElementById("1").style.marginTop="-550px";
-          break;
-        
-      }
-  }
-  componentDidMount(){
-    this.handleClick();
-  }
-  
-
   public render(): React.ReactElement {
     return (
       <div className={styles.obedy}>
@@ -54,7 +14,7 @@ export default class BeQuick extends React.Component {
               <span className={styles.title}>⏲️ BeQuick</span>
               <InfoBoard distance="0.6" link="https://goo.gl/maps/tXsTjYeBfm6vU9EX7" time="8"/>
               <div className={styles.column}>
-              <iframe src="https://ranajky-obedy.sk/wp-content/uploads/Obedov%c3%a9-menu-27.7.-31.7.2020.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="630px" scrolling="no">
+                <iframe src="https://ranajky-obedy.sk/wp-content/uploads/Obedov%c3%a9-menu-27.7.-31.7.2020.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="630px" scrolling="no">
                 </iframe>
               </div>
             </div>
