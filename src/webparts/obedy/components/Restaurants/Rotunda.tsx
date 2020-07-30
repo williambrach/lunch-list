@@ -13,9 +13,12 @@ export default class Rotunda extends React.Component {
         <div className={styles.container}>
           <div className={styles.row}>
             <div className={styles.column}>
-              <span className={styles.title}>🏰 Rotunda</span>
+              <a  target='_blank' href="http://www.pizzeriarotunda.sk/" style={{ textDecoration: 'none' }}>
+                <span className={styles.title}>🏰 Rotunda</span>
+              </a >
+
             </div>
-            <InfoBoard distance="1,2" link="https://goo.gl/maps/aN8X1MZKJr3Ahf8i8" time="14"/>
+            <InfoBoard distance="1,2" link="https://goo.gl/maps/aN8X1MZKJr3Ahf8i8" time="14" />
             <div className={styles.column}>
               <div className={styles.iframeRotundaDiv}>
                 <iframe src="https://restauracie.sme.sk/restauracia/pizzeria-rotunda_2316-ruzinov_2980/denne-menu" className={styles.iframeRotunda} scrolling="no" sandbox="">
