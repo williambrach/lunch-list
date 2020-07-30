@@ -136,6 +136,13 @@ $base-color: #15449c;
 
   }
   .rectangle{
-    background-color: $base-color; position: relative; display: block; height: 80px; width: 466px; bottom: 80px; left: 0px;
+    background-color: $base-color; position: relative; display: block; height: 80px; width: 500px; bottom: 80px; left: 0px;
+  }
+
+  .rebeccaLoad{
+    display:flex;
+    justify-content : 'center';
+    flex-direction: "column";
+    align-items: "center";
   }
 }
