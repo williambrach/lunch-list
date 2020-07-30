@@ -6,7 +6,7 @@ import InfoBoard from '../InfoBoard';
 
 export default class Yummy extends React.Component {
 
-  getUrlWithDates(){
+  getUrlWithDates() {
     const date = new Date(Date.now());
     var day = date.getDate();
     var weekIndex = date.getDay();
@@ -15,10 +15,10 @@ export default class Yummy extends React.Component {
     var startWeekDay = day - weekIndex + 1;
     var endWeekDay = startWeekDay + 4;
     var spacedMonth = month.toString();
-    if (spacedMonth.length > 1){
-      spacedMonth = "0"+month;
+    if (spacedMonth.length > 1) {
+      spacedMonth = "0" + month;
     }
-    let url = "https://yummycantina.sk/wp-content/uploads/"+year+"/"+spacedMonth+"/"+startWeekDay+"-"+endWeekDay+"."+month+"."+year+"-1.pdf#toolbar=0&navpanes=0&scrollbar=0"
+    let url = "https://yummycantina.sk/wp-content/uploads/" + year + "/" + spacedMonth + "/" + startWeekDay + "-" + endWeekDay + "." + month + "." + year + "-1.pdf#toolbar=0&navpanes=0&scrollbar=0"
     return url
   }
 

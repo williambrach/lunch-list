@@ -6,7 +6,7 @@ import InfoBoard from '../InfoBoard';
 
 export default class BeQuick extends React.Component {
 
-  getUrlWithDates(){
+  getUrlWithDates() {
     const date = new Date(Date.now());
     var day = date.getDate();
     var weekIndex = date.getDay();
@@ -14,7 +14,7 @@ export default class BeQuick extends React.Component {
     var year = date.getFullYear();
     var startWeekDay = day - weekIndex + 1;
     var endWeekDay = startWeekDay + 4;
-    let url = "https://ranajky-obedy.sk/wp-content/uploads/Obedov%c3%a9-menu-"+startWeekDay+"."+month+".-"+endWeekDay+"."+month+"."+year+".pdf#toolbar=0&navpanes=0&scrollbar=0"
+    let url = "https://ranajky-obedy.sk/wp-content/uploads/Obedov%c3%a9-menu-" + startWeekDay + "." + month + ".-" + endWeekDay + "." + month + "." + year + ".pdf#toolbar=0&navpanes=0&scrollbar=0"
     return url
   }
 
