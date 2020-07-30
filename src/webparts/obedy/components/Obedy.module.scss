@@ -1,8 +1,9 @@
 @import '~office-ui-fabric-react/dist/sass/References.scss';
 
+$base-color: $ms-color-themeDark;
+
 .obedy {
   .container {
-    max-width: 700px;
     margin: 0px auto;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
   }
@@ -10,7 +11,12 @@
   .row {
     @include ms-Grid-row;
     @include ms-fontColor-white;
-    background-color: $ms-color-themeDark;
+    background-color: $base-color;
+    padding: 20px;
+  }
+  .headerRow{
+    @include ms-fontColor-white;
+    background-color: $base-color;
     padding: 20px;
   }
 
@@ -23,7 +29,12 @@
   }
 
   .title {
-    @include ms-font-xl;
+    @include ms-font-xxl;
+    @include ms-fontColor-white;
+
+  }
+  .headerText {
+    @include ms-font-xxl;
     @include ms-fontColor-white;
   }
 
@@ -59,8 +70,8 @@
     text-align: center;
     cursor: pointer;
     display: inline-block;
-    padding: 0 16px;
-
+    padding:0px 16px;
+    margin: 16px 0px;
     .label {
       font-weight: $ms-font-weight-semibold;
       font-size: $ms-font-size-m;
@@ -70,5 +81,53 @@
       vertical-align: top;
       display: inline-block;
     }
+  }
+
+  .rowRestaurants{
+    display: flex;
+    flex : 1;
+    background-color: $ms-color-themeDark;
+  }
+
+  .colRestaurants {
+    display: flex;
+    flex :1;
+  }
+
+  .iframeOravec {
+    border: 0px none; height: 1100px; margin-top: -700px; width: 100%;
+
+  }
+
+  .iframeOravecDiv{
+    border: 3px;
+    overflow: hidden;
+    margin: 15px auto;
+  }
+
+  .iframeRotunda {
+    border: 0px none; height: 850px; margin-top: -450px; width: 100%;
+
+  }
+  .iframeRotundaDiv{
+    border: 3px;
+    overflow: hidden;
+    margin: 15px auto;
+  }
+
+  .iframeMlynDiv{
+    border: 3px;
+    overflow: hidden;
+    margin: 15px auto;
+  }
+  .iframeVeglife {
+    border: 0px none; height: 980px; margin-top: -580px; width: 100%;
+  }
+  .iframeMlyn {
+    border: 0px none; height: 950px; margin-top: -550px; width: 100%;
+
+  }
+  .rectangle{
+    background-color: $base-color; position: relative; display: block; height: 80px; width: 466px; bottom: 80px; left: 0px;
   }
 }

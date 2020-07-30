@@ -12,6 +12,7 @@ import Obedy from './components/Obedy';
 import { IObedyProps } from './components/IObedyProps';
 
 export interface IObedyWebPartProps {
+  rebeccaLink: string;
   description: string;
 }
 
@@ -21,7 +22,8 @@ export default class ObedyWebPart extends BaseClientSideWebPart <IObedyWebPartPr
     const element: React.ReactElement<IObedyProps> = React.createElement(
       Obedy,
       {
-        description: this.properties.description
+        description: this.properties.description,
+        rebeccaLink: this.properties.rebeccaLink
       }
     );
 
@@ -51,8 +53,17 @@ export default class ObedyWebPart extends BaseClientSideWebPart <IObedyWebPartPr
                   label: strings.DescriptionFieldLabel
                 })
               ]
+            }, 
+            {
+              groupName: "Rebecca link",
+              groupFields: [
+                PropertyPaneTextField('rebeccaLink', {
+                  label: "Daj link na menu v Rebecce!",
+                  placeholder: "Link"
+                })
+              ]
             }
-          ]
+          ],
         }
       ]
     };
