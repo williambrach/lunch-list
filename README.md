@@ -5,7 +5,7 @@ React + TypeScript 100%.
 
 ### Example
 
-![Example_1](./md_examples/webPartExample1.png)
+![Example_1](md_examples/webPartExample1.PNG)
 
 ### Building the code
 
