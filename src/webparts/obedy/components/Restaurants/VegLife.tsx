@@ -21,6 +21,7 @@ export default class Veglife extends React.Component {
               <div className={styles.iframeRotundaDiv}>
                 <iframe src="https://restauracie.sme.sk/restauracia/veg-life_6328-stare-mesto_2949/denne-menu" className={styles.iframeVeglife} scrolling="no" sandbox="">
                 </iframe>
+                <div className={styles.rectangle}></div>
               </div>
 
             </div>

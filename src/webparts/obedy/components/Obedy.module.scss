@@ -1,5 +1,7 @@
 @import '~office-ui-fabric-react/dist/sass/References.scss';
 
+$base-color: $ms-color-themeDark;
+
 .obedy {
   .container {
     margin: 0px auto;
@@ -9,7 +11,7 @@
   .row {
     @include ms-Grid-row;
     @include ms-fontColor-white;
-    background-color: $ms-color-themeDark;
+    background-color: $base-color;
     padding: 20px;
   }
 
@@ -88,7 +90,6 @@
 
   }
 
-
   .iframeOravecDiv{
     border: 3px;
     overflow: hidden;
@@ -116,5 +117,8 @@
   .iframeMlyn {
     border: 0px none; margin-left: 10px; height: 950px; margin-top: -550px; width: 100%;
 
+  }
+  .rectangle{
+    background-color: $base-color; position: relative; display: block; height: 80px; width: 466px; bottom: 80px; left: 10px;
   }
 }
