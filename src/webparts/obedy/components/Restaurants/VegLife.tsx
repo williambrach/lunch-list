@@ -10,14 +10,17 @@ export default class Veglife extends React.Component {
         <div className={styles.container}>
           <div className={styles.row}>
             <div className={styles.column}>
-              <span className={styles.title}>🥕 VegLife</span>
-              </div>
-              <InfoBoard distance="1,4" link="https://goo.gl/maps/zfJtEif8zxnfvZww8" time="18"/>
+              <a target='_blank' href="http://www.veglife.sk/sk/" style={{ textDecoration: 'none' }}>
+                <span className={styles.title}>🥕 VegLife</span>
+              </a >
 
-              <div className={styles.column}>
+            </div>
+            <InfoBoard distance="1,4" link="https://goo.gl/maps/zfJtEif8zxnfvZww8" time="18" />
+
+            <div className={styles.column}>
               <div className={styles.iframeRotundaDiv}>
                 <iframe src="https://restauracie.sme.sk/restauracia/veg-life_6328-stare-mesto_2949/denne-menu" className={styles.iframeVeglife} scrolling="no" sandbox="">
-                  </iframe>
+                </iframe>
               </div>
 
             </div>
