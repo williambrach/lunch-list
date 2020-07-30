@@ -50,13 +50,13 @@ export default class Obedy extends React.Component<IObedyProps, {}> {
           </div>
         </div>
         <div>
-          <Rotunda />
+          <BeQuick />
           <Mlyn />
           <Oravec />
-          <BeQuick />
+          <Rotunda />
           <Veglife />
-          <Rebecca  link={this.props.rebeccaLink}/>
           <Yummy />
+          <Rebecca  link={this.props.rebeccaLink}/>
           <HanoiGarden />
         </div>
       </div>
