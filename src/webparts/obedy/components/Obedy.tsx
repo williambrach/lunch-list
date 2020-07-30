@@ -12,10 +12,7 @@ import Yummy from "./Restaurants/Yummy";
 import Oravec from "./Restaurants/Oravec";
 import Veglife from "./Restaurants/VegLife"
 
-
 export default class Obedy extends React.Component<IObedyProps, {}> {
-
-
 
   getDate = () => {
 
@@ -50,7 +47,7 @@ export default class Obedy extends React.Component<IObedyProps, {}> {
                 </div>
                 <div className={styles.row}>
                   <a href="https://aka.ms/spfx" className={styles.button}>
-                    <span className={styles.label}>Update Obedov</span>
+                    <span className={styles.label}>{this.props.rebeccaLink}</span>
 
                   </a>
               </div>
@@ -65,7 +62,7 @@ export default class Obedy extends React.Component<IObedyProps, {}> {
           <Oravec />
           <BeQuick />
           <Veglife />
-          <Rebecca />
+          <Rebecca  link={this.props.rebeccaLink}/>
           <Yummy />
           <HanoiGarden />
         </div>

@@ -22,7 +22,8 @@
     "description": { "default": "Webpart na zjednoduhsenie obedovania" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "Obedy"
+      "description": "Obedy",
+      "rebeccaLink": "Rebecca Link"
     }
   }]
 }
