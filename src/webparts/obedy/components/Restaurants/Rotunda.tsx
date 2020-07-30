@@ -20,6 +20,7 @@ export default class Rotunda extends React.Component {
               <div className={styles.iframeRotundaDiv}>
                 <iframe src="https://restauracie.sme.sk/restauracia/pizzeria-rotunda_2316-ruzinov_2980/denne-menu" className={styles.iframeRotunda} scrolling="no" sandbox="">
                 </iframe>
+                <div className={styles.rectangle}></div>
               </div>
             </div>
           </div>

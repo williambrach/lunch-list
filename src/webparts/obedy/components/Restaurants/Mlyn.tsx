@@ -17,7 +17,8 @@ export default class Mlyn extends React.Component {
             <div className={styles.column}>
               <div className={styles.iframeMlynDiv}>
                 <iframe scrolling="no" src="https://restauracie.sme.sk/restauracia/mlyn-restaurant_1745-ruzinov_2980/denne-menu" className={styles.iframeMlyn} sandbox="">
-                  </iframe>
+                </iframe>
+                <div className={styles.rectangle}></div>
             </div>
           </div>
         </div>

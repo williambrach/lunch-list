@@ -22,8 +22,8 @@ export default class Oravec extends React.Component {
               <div className={styles.column}>
               <div className={styles.iframeOravecDiv}>
                 <iframe scrolling="no" src="https://menucka.sk/denne-menu/bratislava/gurmansky-dvor-u-oravca" className={styles.iframeOravec}>
-                  </iframe>
-
+                </iframe>
+                <div className={styles.rectangle}></div>
               </div>
 
               </div>
