@@ -14,7 +14,23 @@ export default class BeQuick extends React.Component {
     var year = date.getFullYear();
     var startWeekDay = day - weekIndex + 1;
     var endWeekDay = startWeekDay + 4;
-    let url = "https://ranajky-obedy.sk/wp-content/uploads/Obedov%c3%a9-menu-" + startWeekDay + "." + month + ".-" + endWeekDay + "." + month + "." + year + ".pdf#toolbar=0&navpanes=0&scrollbar=0"
+    var spacedMonth = month.toString();
+    var spacedStartDay = startWeekDay.toString()
+    var scacedEndDay = endWeekDay.toString()
+    if (spacedMonth.length == 1) {
+      spacedMonth = "0" + month;
+    }
+    if (spacedStartDay.length == 1) {
+      spacedStartDay = "0" + startWeekDay;
+    }
+    if (scacedEndDay.length == 1) {
+      scacedEndDay = "0" + endWeekDay;
+    }
+    //https://ranajky-obedy.sk/wp-content/uploads/Obedov%c3%a9-menu-03.08.-07.08.2020.pdf
+    //https://ranajky-obedy.sk/wp-content/uploads/Obedov%c3%a9-menu-3.08.-7.08.2020.pdf#toolbar=0&navpanes=0&scrollbar=0
+    let url = "https://ranajky-obedy.sk/wp-content/uploads/Obedov%c3%a9-menu-" + spacedStartDay + "." + spacedMonth + ".-" + scacedEndDay + "." + spacedMonth + "." + year + ".pdf#toolbar=0&navpanes=0&scrollbar=0"
+    console.log(month)
+    console.log(url);
     return url
   }
 
