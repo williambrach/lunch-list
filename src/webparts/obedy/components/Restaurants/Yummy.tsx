@@ -15,10 +15,18 @@ export default class Yummy extends React.Component {
     var startWeekDay = day - weekIndex + 1;
     var endWeekDay = startWeekDay + 4;
     var spacedMonth = month.toString();
-    if (spacedMonth.length > 1) {
+    if (spacedMonth.length < 2) {
       spacedMonth = "0" + month;
     }
-    let url = "https://yummycantina.sk/wp-content/uploads/" + year + "/" + spacedMonth + "/" + startWeekDay + "-" + endWeekDay + "." + month + "." + year + "-1.pdf#toolbar=0&navpanes=0&scrollbar=0"
+    var spacedStartWeekDay = startWeekDay.toString();
+    if (spacedStartWeekDay.length < 2) {
+      spacedStartWeekDay = "0" + startWeekDay;
+    }
+    var spacedEndWeekDay = endWeekDay.toString();
+    if (spacedEndWeekDay.length < 2) {
+      spacedEndWeekDay = "0" + endWeekDay;
+    }
+    let url = "https://yummycantina.sk/wp-content/uploads/" + year + "/" + spacedMonth + "/" + spacedStartWeekDay + "-" + spacedEndWeekDay + "." + month + "." + year + "-1.pdf#toolbar=0&navpanes=0&scrollbar=0"
     return url
   }
 
@@ -36,7 +44,7 @@ export default class Yummy extends React.Component {
             <InfoBoard distance="Hned dole " link="" time="1" />
 
             <div className={styles.column}>
-              <iframe src="https://yummycantina.sk/wp-content/uploads/2020/07/27-31.7.2020-1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="630px" scrolling="no">
+              <iframe src={this.getUrlWithDates()} width="100%" height="630px" scrolling="no">
               </iframe>
 
             </div>
