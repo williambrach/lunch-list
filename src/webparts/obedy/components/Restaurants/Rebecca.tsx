@@ -55,7 +55,7 @@ export default class Rebecca extends React.Component<RebeccaProps,RebeccaState> 
                 <ReactLoading type={"cylon"} color={"white"} />
                 </div>
               ) : (
-                  <embed src={this.props.link} width="100%" height="600px">
+                  <embed src={this.props.link} width="100%" >
                   </embed>
                 )}
 
