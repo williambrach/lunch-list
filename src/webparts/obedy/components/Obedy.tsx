@@ -10,11 +10,11 @@ import Rebecca from "./Restaurants/Rebecca";
 import Rotunda from "./Restaurants/Rotunda";
 import Yummy from "./Restaurants/Yummy";
 import Oravec from "./Restaurants/Oravec";
-import Veglife from "./Restaurants/VegLife"
+import Veglife from "./Restaurants/VegLife";
 
 export default class Obedy extends React.Component<IObedyProps, {}> {
 
-  getDate = () => {
+  private getDate = () => {
 
     let weekMap = new Map();
 
@@ -27,7 +27,7 @@ export default class Obedy extends React.Component<IObedyProps, {}> {
     weekMap.set(7, 'Nedela');
 
     const dayNum = new Date(Date.now());
-    return weekMap.get(dayNum.getDay()) + ", " + dayNum.getDate() + "." + dayNum.getMonth() + "." + dayNum.getFullYear()
+    return weekMap.get(dayNum.getDay()) + ", " + dayNum.getDate() + "." + dayNum.getMonth() + "." + dayNum.getFullYear();
   }
 
   public render(): React.ReactElement<IObedyProps> {
@@ -54,7 +54,7 @@ export default class Obedy extends React.Component<IObedyProps, {}> {
           <Rotunda />
           <Veglife />
           <Yummy />
-          <Rebecca  link={this.props.rebeccaLink}/>
+          <Rebecca link={this.props.rebeccaLink} />
           <HanoiGarden />
         </div>
       </div>

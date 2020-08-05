@@ -18,7 +18,7 @@ export default class InfoBoard extends React.Component<IInfoBoard> {
     return (
       <div>
         <div className={styles.column}>
-    <span className={styles.subTitle}>🚶‍♂️ = {this.props.distance}km, ⏱️ =~ {this.props.time} minút</span>
+          <span className={styles.subTitle}>🚶‍♂️ = {this.props.distance}km, ⏱️ =~ {this.props.time} minút</span>
         </div>
         <div className={styles.column}>
           <a target='_blank' href={this.props.link} className={styles.button}>

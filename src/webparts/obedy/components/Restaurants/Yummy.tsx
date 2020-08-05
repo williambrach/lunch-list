@@ -6,7 +6,7 @@ import InfoBoard from '../InfoBoard';
 
 export default class Yummy extends React.Component {
 
-  getUrlWithDates() {
+  private getUrlWithDates() {
     const date = new Date(Date.now());
     var day = date.getDate();
     var weekIndex = date.getDay();
@@ -26,8 +26,8 @@ export default class Yummy extends React.Component {
     if (spacedEndWeekDay.length < 2) {
       spacedEndWeekDay = "0" + endWeekDay;
     }
-    let url = "https://yummycantina.sk/wp-content/uploads/" + year + "/" + spacedMonth + "/" + spacedStartWeekDay + "-" + spacedEndWeekDay + "." + month + "." + year + "-1.pdf#toolbar=0&navpanes=0&scrollbar=0"
-    return url
+    let url = "https://yummycantina.sk/wp-content/uploads/" + year + "/" + spacedMonth + "/" + spacedStartWeekDay + "-" + spacedEndWeekDay + "." + month + "." + year + "-1.pdf#toolbar=0&navpanes=0&scrollbar=0";
+    return url;
   }
 
   public render(): React.ReactElement {
@@ -44,7 +44,7 @@ export default class Yummy extends React.Component {
             <InfoBoard distance="Hned dole " link="" time="1" />
 
             <div className={styles.column}>
-              <iframe src={this.getUrlWithDates()} width="100%" height="630px" scrolling="no">
+              <iframe src={this.getUrlWithDates()} width="100%" height="1100px" scrolling="no">
               </iframe>
 
             </div>

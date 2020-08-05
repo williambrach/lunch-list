@@ -13,25 +13,25 @@ interface RebeccaProps {
 }
 
 interface RebeccaState {
-   insertedLink: boolean;
+  insertedLink: boolean;
 }
 
-export default class Rebecca extends React.Component<RebeccaProps,RebeccaState> {
+export default class Rebecca extends React.Component<RebeccaProps, RebeccaState> {
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       insertedLink: undefined
-    }
+    };
   }
 
 
 
-  checkState(){
-    if (this.props.link == "link" || this.props.link == "" || this.props.link == "Rebecca Link"){
-        return true
-    }else{
-      return false
+  private checkState() {
+    if (this.props.link == "link" || this.props.link == "" || this.props.link == "Rebecca Link") {
+      return true;
+    } else {
+      return false;
     }
   }
 
@@ -51,8 +51,8 @@ export default class Rebecca extends React.Component<RebeccaProps,RebeccaState> 
             <div className={styles.column}>
               {this.checkState() ? (
                 <div className={styles.rebeccaLoad}>
-                <h4>Je potrebné pridať link na menu ✏️</h4>
-                <ReactLoading type={"cylon"} color={"white"} />
+                  <h4>Je potrebné pridať link na menu ✏️</h4>
+                  <ReactLoading type={"cylon"} color={"white"} />
                 </div>
               ) : (
                   <embed src={this.props.link} width="100%" >
