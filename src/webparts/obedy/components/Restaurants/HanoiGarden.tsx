@@ -7,7 +7,7 @@ import InfoBoard from '../InfoBoard';
 export default class HanoiGarden extends React.Component {
 
 
-  getMenuByDate(type: number): string {
+  private getMenuByDate(type: number): string {
 
     let weekMap = new Map();
 
@@ -18,14 +18,14 @@ export default class HanoiGarden extends React.Component {
     weekMap.set(5, 'piatok');
 
     const dayNum = new Date(Date.now());
-    const day = weekMap.get(dayNum.getDay())
+    const day = weekMap.get(dayNum.getDay());
 
 
     if (type == 1) {
-      return "../src/assets/hanoi_" + day + "_1.pdf#toolbar=0&navpanes=0&scrollbar=0"
+      return "../src/assets/hanoi_" + day + "_1.pdf#toolbar=0&navpanes=0&scrollbar=0";
     }
     else {
-      return "../src/assets/hanoi_" + day + "_2.pdf#toolbar=0&navpanes=0&scrollbar=0"
+      return "../src/assets/hanoi_" + day + "_2.pdf#toolbar=0&navpanes=0&scrollbar=0";
     }
   }
 

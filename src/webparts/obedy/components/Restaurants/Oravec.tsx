@@ -2,7 +2,6 @@ import * as React from 'react';
 import styles from '../Obedy.module.scss';
 import { IObedyProps } from '../IObedyProps';
 import { escape } from '@microsoft/sp-lodash-subset';
-import axios from 'axios'
 import InfoBoard from '../InfoBoard';
 
 

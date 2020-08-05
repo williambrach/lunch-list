@@ -2,7 +2,7 @@ import * as React from 'react';
 import styles from '../Obedy.module.scss';
 import { IObedyProps } from '../IObedyProps';
 import { escape } from '@microsoft/sp-lodash-subset';
-import axios from 'axios'
+import axios from 'axios';
 import InfoBoard from '../InfoBoard';
 
 export default class Rotunda extends React.Component {
@@ -13,7 +13,7 @@ export default class Rotunda extends React.Component {
         <div className={styles.container}>
           <div className={styles.row}>
             <div className={styles.column}>
-              <a  target='_blank' href="http://www.pizzeriarotunda.sk/" style={{ textDecoration: 'none' }}>
+              <a target='_blank' href="http://www.pizzeriarotunda.sk/" style={{ textDecoration: 'none' }}>
                 <span className={styles.title}>🏰 Rotunda</span>
               </a >
 

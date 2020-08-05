@@ -1,18 +1,22 @@
 @import '~office-ui-fabric-react/dist/sass/References.scss';
 
-$base-color: $ms-color-themeDark;
+//modra 15449c
+$base-color: #15449c;
 
 .obedy {
   .container {
     margin: 0px auto;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    //box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
   }
 
   .row {
     @include ms-Grid-row;
-    @include ms-fontColor-white;
+    @include ms-fontColor-black;
     background-color: $base-color;
     padding: 20px;
+    //border: darken($color: LightSteelBlue, $amount: );
+    //border-style: groove;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
   }
   .headerRow{
     @include ms-fontColor-white;
@@ -31,11 +35,14 @@ $base-color: $ms-color-themeDark;
   .title {
     @include ms-font-xxl;
     @include ms-fontColor-white;
-
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
   }
   .headerText {
     @include ms-font-xxl;
     @include ms-fontColor-white;
+    display: inline-block;
+    // margin: 0 0 0 150px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
   }
 
   .subTitle {
@@ -54,10 +61,11 @@ $base-color: $ms-color-themeDark;
     height: 32px;
 
     // Primary Button
-    min-width: 80px;
-    background-color: $ms-color-themePrimary;
-    border-color: $ms-color-themePrimary;
-    color: $ms-color-white;
+    min-width: 50px;
+    background-color: #4677c9;
+    border-color: #4677c9;
+    color: #4677c9;
+    border-radius: 12px;
 
     // Basic Button
     outline: transparent;
@@ -128,6 +136,13 @@ $base-color: $ms-color-themeDark;
 
   }
   .rectangle{
-    background-color: $base-color; position: relative; display: block; height: 80px; width: 466px; bottom: 80px; left: 0px;
+    background-color: $base-color; position: relative; display: block; height: 80px; width: 100%; bottom: 80px; left: 0px;
+  }
+
+  .rebeccaLoad{
+    display:flex;
+    justify-content : 'center';
+    flex-direction: "column";
+    align-items: "center";
   }
 }

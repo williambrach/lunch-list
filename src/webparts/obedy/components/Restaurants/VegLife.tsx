@@ -3,6 +3,7 @@ import styles from '../Obedy.module.scss';
 import { IObedyProps } from '../IObedyProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 import InfoBoard from '../InfoBoard';
+
 export default class Veglife extends React.Component {
   public render(): React.ReactElement {
     return (

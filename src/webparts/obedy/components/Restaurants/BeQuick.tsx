@@ -6,7 +6,7 @@ import InfoBoard from '../InfoBoard';
 
 export default class BeQuick extends React.Component {
 
-  getUrlWithDates() {
+  private getUrlWithDates() {
     const date = new Date(Date.now());
     var day = date.getDate();
     var weekIndex = date.getDay();
@@ -14,8 +14,20 @@ export default class BeQuick extends React.Component {
     var year = date.getFullYear();
     var startWeekDay = day - weekIndex + 1;
     var endWeekDay = startWeekDay + 4;
-    let url = "https://ranajky-obedy.sk/wp-content/uploads/Obedov%c3%a9-menu-" + startWeekDay + "." + month + ".-" + endWeekDay + "." + month + "." + year + ".pdf#toolbar=0&navpanes=0&scrollbar=0"
-    return url
+    var spacedMonth = month.toString();
+    var spacedStartDay = startWeekDay.toString();
+    var scacedEndDay = endWeekDay.toString();
+    if (spacedMonth.length == 1) {
+      spacedMonth = "0" + month;
+    }
+    if (spacedStartDay.length == 1) {
+      spacedStartDay = "0" + startWeekDay;
+    }
+    if (scacedEndDay.length == 1) {
+      scacedEndDay = "0" + endWeekDay;
+    }
+    let url = "https://ranajky-obedy.sk/wp-content/uploads/Obedov%c3%a9-menu-" + spacedStartDay + "." + spacedMonth + ".-" + scacedEndDay + "." + spacedMonth + "." + year + ".pdf#toolbar=0&navpanes=0&scrollbar=0";
+    return url;
   }
 
 
@@ -32,7 +44,7 @@ export default class BeQuick extends React.Component {
             </div>
             <InfoBoard distance="0.6" link="https://goo.gl/maps/tXsTjYeBfm6vU9EX7" time="8" />
             <div className={styles.column}>
-              <iframe src={this.getUrlWithDates()} width="100%" height="630px" scrolling="no">
+              <iframe src={this.getUrlWithDates()} width="100%" height="950px" scrolling="no">
               </iframe>
             </div>
           </div>

@@ -5,7 +5,7 @@
     "id": "dc783ffe-887a-4e30-ac17-a07ec41f0e66",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
-    "isDomainIsolated": true
+    "isDomainIsolated": false
   },
   "paths": {
     "zippedPackage": "solution/lunch-list.sppkg"
