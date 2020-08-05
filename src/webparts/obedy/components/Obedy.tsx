@@ -27,7 +27,8 @@ export default class Obedy extends React.Component<IObedyProps, {}> {
     weekMap.set(7, 'Nedela');
 
     const dayNum = new Date(Date.now());
-    return weekMap.get(dayNum.getDay()) + ", " + dayNum.getDate() + "." + dayNum.getMonth() + "." + dayNum.getFullYear();
+    let month = dayNum.getMonth() + 1;
+    return weekMap.get(dayNum.getDay()) + ", " + dayNum.getDate() + "." +month + "." + dayNum.getFullYear();
   }
 
   public render(): React.ReactElement<IObedyProps> {

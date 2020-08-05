@@ -44,7 +44,7 @@ export default class BeQuick extends React.Component {
             </div>
             <InfoBoard distance="0.6" link="https://goo.gl/maps/tXsTjYeBfm6vU9EX7" time="8" />
             <div className={styles.column}>
-              <iframe src={this.getUrlWithDates()} width="100%" height="1100px" scrolling="no">
+              <iframe src={this.getUrlWithDates()} width="100%" height="950px" scrolling="no">
               </iframe>
             </div>
           </div>

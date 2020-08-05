@@ -44,7 +44,7 @@ export default class Yummy extends React.Component {
             <InfoBoard distance="Hned dole " link="" time="1" />
 
             <div className={styles.column}>
-              <iframe src={this.getUrlWithDates()} width="100%" height="1100px" scrolling="no">
+              <iframe src={this.getUrlWithDates()} width="100%" height="950px" scrolling="no">
               </iframe>
 
             </div>

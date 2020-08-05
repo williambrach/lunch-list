@@ -51,7 +51,7 @@ export default class Rebecca extends React.Component<RebeccaProps, RebeccaState>
             <div className={styles.column}>
               {this.checkState() ? (
                 <div className={styles.rebeccaLoad}>
-                  <h4>Je potrebné pridať link na menu ✏️</h4>
+                  <h4 style={{color:"white"}}>Je potrebné pridať link na menu ✏️</h4>
                   <ReactLoading type={"cylon"} color={"white"} />
                 </div>
               ) : (
