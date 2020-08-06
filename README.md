@@ -1,7 +1,7 @@
 ## lunch-list
 
 WebPart pre Sharepoint Online na zobrazovanie obedových menus na jednom mieste.  
-React + TypeScript 100%.  
+
 
 ### Example
 
@@ -16,6 +16,13 @@ npm i -g gulp
 gulp
 ```
 
+### Deploy to SharePointOnline
+
+```bash
+gulp clean
+gulp --ship
+gulp package-solution --ship
+```
 
 ### JEDALNE
 
