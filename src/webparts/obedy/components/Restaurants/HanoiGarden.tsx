@@ -22,10 +22,11 @@ export default class HanoiGarden extends React.Component {
 
 
     if (type == 1) {
-      return "../src/assets/hanoi_" + day + "_1.pdf#toolbar=0&navpanes=0&scrollbar=0";
+      return "https://testsnt.sharepoint.com/sites/Obedy/Hanoi_pdf/hanoi_"+day+"_1.pdf#toolbar=0&navpanes=0&scrollbar=0";
     }
     else {
-      return "../src/assets/hanoi_" + day + "_2.pdf#toolbar=0&navpanes=0&scrollbar=0";
+      return "https://testsnt.sharepoint.com/sites/Obedy/Hanoi_pdf/hanoi_"+day+"_2.pdf#toolbar=0&navpanes=0&scrollbar=0";
+
     }
   }
 
@@ -43,9 +44,9 @@ export default class HanoiGarden extends React.Component {
             <InfoBoard distance="1,3" link="https://goo.gl/maps/cAL1z435kUgJPgnP6" time="17" />
 
             <div className={styles.column}>
-              <iframe src={this.getMenuByDate(1)} width="100%" height="630px" scrolling="no">
+              <iframe src={this.getMenuByDate(1)} width="100%" height="950px" scrolling="no">
               </iframe>
-              <iframe src={this.getMenuByDate(2)} width="100%" height="630px" scrolling="no">
+              <iframe src={this.getMenuByDate(2)} width="100%" height="950px" scrolling="no">
               </iframe>
             </div>
           </div>
