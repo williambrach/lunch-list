@@ -1,0 +1,11 @@
+{
+  "soup": "text",
+  "menu": [
+    {
+      "name": "text",
+      "price": 1
+    }
+  ],
+  "images": ["text", "text","text"]
+
+}
