@@ -5,7 +5,7 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import InfoBoard from '../InfoBoard';
 import LunchRow from '../LunchRow';
 import axios from 'axios';
-import {apiUrl} from '../ApiConstants'
+import { apiUrl } from '../ApiConstants'
 
 interface IMlyn {
 
@@ -13,6 +13,7 @@ interface IMlyn {
 
 interface MlynState {
   menu?: object;
+  loaded : boolean;
 }
 
 export default class Mlyn extends React.Component<IMlyn, MlynState> {
@@ -21,7 +22,8 @@ export default class Mlyn extends React.Component<IMlyn, MlynState> {
   constructor(props) {
     super(props);
     this.state = {
-      menu: this.getMenuItems()
+      menu: this.getMenuItems(),
+      loaded : false
     }
   }
 
@@ -34,31 +36,14 @@ export default class Mlyn extends React.Component<IMlyn, MlynState> {
     }
   }
 
-  async getMenuItems(): Promise<object> {
-    let response = await this.getApiCall(apiUrl+"mlyn")
-    console.log(response)
-    return {
-      "soup": "0,33l (1,7,13)  Šošovicová kyslá",
-      "foods": [
-        {
-          "name": "120g (7) 1. Kurací stroganov, ryža alebo varené zemiaky, obloha z čerstvej zeleniny",
-          "price": "5,90"
-        },
-        {
-          "name": "120g (1) 2. Morčacie stehno na hubách, ryža  alebo varené zemiaky, obloha z čerstvej zeleniny",
-          "price": "5,90"
-        },
-        {
-          "name": "120g (1,3,7) 3. Vyprážaný bravčový rezeň v Cornflakes, ryža alebo varené zemiaky, obloha z čerstvej zeleniny",
-          "price": "5,90"
-        },
-        {
-          "name": "150g  (1,3,7) 4. Jelenie ragú , zemiaková knedľa",
-          "price": "6,90"
-        }
-      ],
-      "images": null
-    }
+  async getMenuItems() : Promise<object>{
+    let response = await this.getApiCall(apiUrl + "mlyn")
+    this.setState({
+      loaded : true,
+      menu: response['data']
+    })
+    
+    return response['data']
   }
 
 
@@ -74,10 +59,20 @@ export default class Mlyn extends React.Component<IMlyn, MlynState> {
 
             </div>
             <InfoBoard distance="1,3" link="https://goo.gl/maps/6gP8a5RPohSgdSDj8" time="16" />
+            {(this.state.loaded == true) ? (
             <LunchRow menuNumber="Polievka" price={null} menu={this.state.menu['soup']} />
-            {this.state.menu['foods'].map((item, index) =>
-              <LunchRow menuNumber={"Menu " + (index + 1)} price={item['price']} menu={item['name']} />
+            ) : (
+              <div></div>
             )}
+            {(this.state.loaded == true) ? (
+               
+                this.state.menu['foods'].map((item, index) =>
+                <LunchRow menuNumber={"Menu " + (index + 1)} price={item['price']} menu={item['name']} />
+              )
+            ) : (
+                <div></div>
+              )
+            }
           </div>
         </div>
       </div>
