@@ -50,6 +50,17 @@ $base-color: #15449c;
     @include ms-fontColor-white;
   }
 
+  .lunchTextHeader{
+    @include ms-font-m;
+    @include ms-fontColor-white;
+    font-weight: bold;
+    
+  }
+  .lunchText {
+    @include ms-font-m;
+    @include ms-fontColor-white;
+  }
+
   .description {
     @include ms-font-l;
     @include ms-fontColor-white;
