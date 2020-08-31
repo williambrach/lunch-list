@@ -7,29 +7,60 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using HtmlAgilityPack;
+using System.Net.Http;
+using System.Linq;
+using System.Collections.Generic;
+using Obed_azure_app.sme;
 
 namespace Obed_azure_app
 {
-    public static class Function1
+  public static class Function1
+  {
+    [FunctionName("Function1")]
+    public static async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+        ILogger log)
     {
-        [FunctionName("Function1")]
-        public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
-            ILogger log)
-        {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+      log.LogInformation("C# HTTP trigger function processed a request.");
 
-            string name = req.Query["name"];
+      string name = req.Query["name"];
 
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
+      string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+      dynamic data = JsonConvert.DeserializeObject(requestBody);
+      name = name ?? data?.name;
 
-            string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
+      string response = null;
 
-            return new OkObjectResult(responseMessage);
-        }
+      switch (name.ToLower())
+      {
+        case "veglife":
+          response = await Veglife.startCrawlerasync("https://restauracie.sme.sk/restauracia/veg-life-prievozska_8702-ruzinov_2980");
+          break;
+        case "mlyn":
+          response = await Mlyn.startCrawlerasync("https://restauracie.sme.sk/restauracia/mlyn-restaurant_1745-ruzinov_2980");
+          break;
+        case "rotunda":
+          response = await Rotunda.startCrawlerasync("https://restauracie.sme.sk/restauracia/pizzeria-rotunda_2316-ruzinov_2980");
+          break;
+        case "bequick":
+          break;
+        case "oravec":
+          break;
+        case "yummy":
+          break;
+        case "rebecca":
+          break;
+        case "hanoi":
+          break;
+        default:
+          return new BadRequestObjectResult("Wrong get.");
+          break;
+
+      }
+      return new OkObjectResult(response);
+
     }
+  }
+
 }
