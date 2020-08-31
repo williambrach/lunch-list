@@ -4,6 +4,8 @@ import { IObedyProps } from '../IObedyProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 import InfoBoard from '../InfoBoard';
 import LunchRow from '../LunchRow';
+import axios from 'axios';
+import {apiUrl} from '../ApiConstants'
 
 interface IMlyn {
 
@@ -23,8 +25,18 @@ export default class Mlyn extends React.Component<IMlyn, MlynState> {
     }
   }
 
-  getMenuItems(): object {
-    // TODO API CALL
+  async getApiCall(url: string): Promise<object> {
+    try {
+      const response = await axios.get(url);
+      return response;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async getMenuItems(): Promise<object> {
+    let response = await this.getApiCall(apiUrl+"mlyn")
+    console.log(response)
     return {
       "soup": "0,33l (1,7,13)  Šošovicová kyslá",
       "foods": [
@@ -33,16 +45,16 @@ export default class Mlyn extends React.Component<IMlyn, MlynState> {
           "price": "5,90"
         },
         {
-          "name": "120g (1) 2. Morčacie stehno na hubách, ryža  alebo varené zemiaky, obloha z čerstvej zeleniny 5,90 €",
+          "name": "120g (1) 2. Morčacie stehno na hubách, ryža  alebo varené zemiaky, obloha z čerstvej zeleniny",
           "price": "5,90"
         },
         {
-          "name": "120g (1,3,7) 3. Vyprážaný bravčový rezeň v Cornflakes, ryža alebo varené zemiaky, obloha z čerstvej zeleniny 5,90 €",
+          "name": "120g (1,3,7) 3. Vyprážaný bravčový rezeň v Cornflakes, ryža alebo varené zemiaky, obloha z čerstvej zeleniny",
           "price": "5,90"
         },
         {
-          "name": "150g  (1,3,7) 4. Jelenie ragú , zemiaková knedľa 6,90 €",
-          "price": "5,90"
+          "name": "150g  (1,3,7) 4. Jelenie ragú , zemiaková knedľa",
+          "price": "6,90"
         }
       ],
       "images": null
