@@ -8,25 +8,43 @@ export default class Yummy extends React.Component {
 
   private getUrlWithDates() {
     const date = new Date(Date.now());
+    var startWeekDate = new Date();
+    var endWeekDate = new Date();
+
     var day = date.getDate();
     var weekIndex = date.getDay();
-    var month = date.getMonth() + 1;
-    var year = date.getFullYear();
-    var startWeekDay = day - weekIndex + 1;
-    var endWeekDay = startWeekDay + 4;
-    var spacedMonth = month.toString();
-    if (spacedMonth.length < 2) {
-      spacedMonth = "0" + month;
+    
+    startWeekDate.setDate(day - weekIndex + 1)
+    endWeekDate.setDate( startWeekDate.getDate() + 4)
+    
+    var startMonthDate = startWeekDate.getMonth() + 1;
+    var endMonthDate = endWeekDate.getMonth() + 1;
+
+    var startYearDate = startWeekDate.getFullYear();
+    var endYearDate = endWeekDate.getFullYear();
+    
+    //days
+    var startWeekDay = startWeekDate.getDate();
+    var endWeekDay = endWeekDate.getDate();
+    var spacedStartDay = startWeekDay.toString();
+    var spacedEndDay = endWeekDay.toString();
+    if (spacedStartDay.length == 1) {
+      spacedStartDay = "0" + startWeekDay;
     }
-    var spacedStartWeekDay = startWeekDay.toString();
-    if (spacedStartWeekDay.length < 2) {
-      spacedStartWeekDay = "0" + startWeekDay;
+    if (spacedEndDay.length == 1) {
+      spacedEndDay = "0" + endWeekDay;
     }
-    var spacedEndWeekDay = endWeekDay.toString();
-    if (spacedEndWeekDay.length < 2) {
-      spacedEndWeekDay = "0" + endWeekDay;
+    //months
+    var startMonth = startMonthDate.toString();
+    var endMonth = endMonthDate.toString();
+
+    if (startMonth.length == 1) {
+      var spacedStartMonth = "0" + startMonth;
     }
-    let url = "https://yummycantina.sk/wp-content/uploads/" + year + "/" + spacedMonth + "/" + spacedStartWeekDay + "-" + spacedEndWeekDay + "." + month + "." + year + "-1.pdf#toolbar=0&navpanes=0&scrollbar=0";
+    // if (endMonth.length == 1) {
+    //   endMonth = "0" + endMonth;
+    // }
+    let url = "https://yummycantina.sk/wp-content/uploads/" + startYearDate + "/" + spacedStartMonth + "/" + spacedStartDay +"."+startMonth+ ".-" + spacedEndDay + "." + endMonth + "." + endYearDate + "-1.pdf#toolbar=0&navpanes=0&scrollbar=0";
     return url;
   }
 

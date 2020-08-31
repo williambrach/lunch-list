@@ -8,25 +8,44 @@ export default class BeQuick extends React.Component {
 
   private getUrlWithDates() {
     const date = new Date(Date.now());
+    var startWeekDate = new Date();
+    var endWeekDate = new Date();
+
     var day = date.getDate();
     var weekIndex = date.getDay();
-    var month = date.getMonth() + 1;
-    var year = date.getFullYear();
-    var startWeekDay = day - weekIndex + 1;
-    var endWeekDay = startWeekDay + 4;
-    var spacedMonth = month.toString();
+    
+    startWeekDate.setDate(day - weekIndex + 1)
+    endWeekDate.setDate( startWeekDate.getDate() + 4)
+    
+    var startMonthDate = startWeekDate.getMonth() + 1;
+    var endMonthDate = endWeekDate.getMonth() + 1;
+
+    //var startYearDate = startWeekDate.getFullYear() + 1;
+    var endYearDate = endWeekDate.getFullYear();
+    
+    //days
+    var startWeekDay = startWeekDate.getDate();
+    var endWeekDay = endWeekDate.getDate();
     var spacedStartDay = startWeekDay.toString();
-    var scacedEndDay = endWeekDay.toString();
-    if (spacedMonth.length == 1) {
-      spacedMonth = "0" + month;
-    }
+    var spacedEndDay = endWeekDay.toString();
     if (spacedStartDay.length == 1) {
       spacedStartDay = "0" + startWeekDay;
     }
-    if (scacedEndDay.length == 1) {
-      scacedEndDay = "0" + endWeekDay;
+    if (spacedEndDay.length == 1) {
+      spacedEndDay = "0" + endWeekDay;
     }
-    let url = "https://ranajky-obedy.sk/wp-content/uploads/Obedov%c3%a9-menu-" + spacedStartDay + "." + spacedMonth + ".-" + scacedEndDay + "." + spacedMonth + "." + year + ".pdf#toolbar=0&navpanes=0&scrollbar=0";
+    //months
+    var startMonth = startMonthDate.toString();
+    var endMonth = endMonthDate.toString();
+
+    if (startMonth.length == 1) {
+      startMonth = "0" + startMonth;
+    }
+    if (endMonth.length == 1) {
+      endMonth = "0" + endMonth;
+    }
+    
+    let url = "https://ranajky-obedy.sk/wp-content/uploads/Obedov%c3%a9-menu-" + spacedStartDay + "." + startMonth + ".-" + spacedEndDay + "." + endMonth + "." + endYearDate + ".pdf#toolbar=0&navpanes=0&scrollbar=0";
     return url;
   }
 
