@@ -6,6 +6,7 @@ import InfoBoard from '../InfoBoard';
 import LunchRow from '../LunchRow';
 import axios from 'axios';
 import { apiUrl } from '../ApiConstants'
+import ImageGallery from 'react-image-gallery';
 
 interface IOravec {
 
@@ -13,18 +14,34 @@ interface IOravec {
 
 interface OravecState {
   menu?: object;
-  loaded : boolean;
+  loaded: boolean;
+  images: { original: string, thumbnail: string }[];
 }
-
+const images = [
+  {
+    original: 'https://www.menucka.sk/img/photo_of_the_day/thumbnails/gurmanskydvor/32300887d5961a6baf5c0c0c66bd065d62470ac2.jpg',
+    thumbnail: 'https://www.menucka.sk/img/photo_of_the_day/thumbnails/gurmanskydvor/32300887d5961a6baf5c0c0c66bd065d62470ac2.jpg',
+  },
+  {
+    original: 'https://www.menucka.sk/img/photo_of_the_day/thumbnails/gurmanskydvor/f9dbec4d626388595b4b24670eabf6854ead789c.jpg',
+    thumbnail: 'https://www.menucka.sk/img/photo_of_the_day/thumbnails/gurmanskydvor/f9dbec4d626388595b4b24670eabf6854ead789c.jpg',
+  },
+  {
+    original: 'https://www.menucka.sk/img/photo_of_the_day/thumbnails/gurmanskydvor/f9dbec4d626388595b4b24670eabf6854ead789c.jpg',
+    thumbnail: 'https://www.menucka.sk/img/photo_of_the_day/thumbnails/gurmanskydvor/f9dbec4d626388595b4b24670eabf6854ead789c.jpg',
+  },
+];
 
 export default class Oravec extends React.Component<IOravec, OravecState> {
+
 
 
   constructor(props) {
     super(props);
     this.state = {
       menu: this.getMenuItems(),
-      loaded : false
+      loaded: false,
+      images: [{ "original": "x", "thumbnail": "x" }]
     }
   }
 
@@ -37,13 +54,28 @@ export default class Oravec extends React.Component<IOravec, OravecState> {
     }
   }
 
-  async getMenuItems() : Promise<object>{
-    let response = await this.getApiCall(apiUrl + "mlyn")
+  parseImages(response) {
+    let array = new Array();
+    response.forEach(element => {
+      let obj = {
+        "original": element,
+        "thumbnail": element
+      }
+      array.push(obj);
+    });
+    return array;
+  }
+
+  async getMenuItems(): Promise<object> {
+    let response = await this.getApiCall(apiUrl + "oravec")
+    let imagesOfFood = this.parseImages(response['data']['images'])
+    console.log(imagesOfFood)
     this.setState({
-      loaded : true,
-      menu: response['data']
+      loaded: true,
+      menu: response['data'],
+      images: imagesOfFood
     })
-    
+
     return response['data']
   }
 
@@ -61,13 +93,13 @@ export default class Oravec extends React.Component<IOravec, OravecState> {
             <InfoBoard distance="1" link="https://goo.gl/maps/VEBvecVJHXQwCuKd8" time="12" />
 
             {(this.state.loaded == true) ? (
-            <LunchRow menuNumber="Polievka" price={null} menu={this.state.menu['soup']} />
+              <LunchRow menuNumber="Polievka" price={null} menu={this.state.menu['soup']} />
             ) : (
-              <div></div>
-            )}
+                <div></div>
+              )}
             {(this.state.loaded == true) ? (
-               
-                this.state.menu['foods'].map((item, index) =>
+
+              this.state.menu['foods'].map((item, index) =>
                 <LunchRow menuNumber={"Menu " + (index + 1)} price={item['price']} menu={item['name']} />
               )
             ) : (
@@ -75,6 +107,12 @@ export default class Oravec extends React.Component<IOravec, OravecState> {
               )
             }
           </div>
+          <div className={styles.row}>
+            {(this.state.loaded == true) ? (
+              <ImageGallery items={this.state.images} />) : (<div></div>)}
+          </div>
+
+
         </div>
       </div>
 

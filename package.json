@@ -29,6 +29,7 @@
     "react": "16.8.5",
     "react-dom": "16.8.5",
     "react-fade-in": "^1.1.0",
+    "react-image-gallery": "^1.0.8",
     "react-loading": "^2.0.3",
     "react-lottie": "^1.2.3"
   },
