@@ -12,7 +12,8 @@ using System.Net.Http;
 using System.Linq;
 using System.Collections.Generic;
 using Obed_azure_app.sme;
-using Obed_azure_app.BeQuick;
+
+using Obed_azure_app.pdf;
 
 namespace Obed_azure_app
 {
@@ -45,11 +46,12 @@ namespace Obed_azure_app
           response = await Rotunda.startCrawlerasync("https://restauracie.sme.sk/restauracia/pizzeria-rotunda_2316-ruzinov_2980");
           break;
         case "bequick":
-          response = await BeQuick.BeQuick.startCrawlerasync();
+          response = await BeQuick.startCrawlerasync();
           break;
         case "oravec":
           break;
         case "yummy":
+          response = await Yummy.startCrawlerasync();
           break;
         case "rebecca":
           break;
