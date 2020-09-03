@@ -14,7 +14,7 @@ namespace Obed_azure_app.BeQuick
     public static async Task<string> startCrawlerasync()
     {
       var httpClient = new HttpClient();
-      var html = await httpClient.GetStringAsync(url);
+      var html = await httpClient.GetStringAsync();
       var htmlDocument = new HtmlDocument();
       htmlDocument.LoadHtml(html);
       var divs = htmlDocument.DocumentNode.Descendants("div").Where(node => node.GetAttributeValue("class", "").Equals("daily-menu-row")).ToList();
