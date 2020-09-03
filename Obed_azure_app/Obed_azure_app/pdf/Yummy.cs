@@ -1,0 +1,25 @@
+using HtmlAgilityPack;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Obed_azure_app.pdf
+{
+  class Yummy
+  {
+    public static async Task<string> startCrawlerasync()
+    {
+      var httpClient = new HttpClient();
+      var html = await httpClient.GetStringAsync("https://yummycantina.sk/prevadzky/yummy-1/");
+      var htmlDocument = new HtmlDocument();
+      htmlDocument.LoadHtml(html);
+      var ar = htmlDocument.DocumentNode.SelectSingleNode("//*[@class='elementor-flip-box__layer elementor-flip-box__back']");
+      JObject o = new JObject();
+      o["link"] = ar.Attributes["href"].Value;
+      return o.ToString();
+    }
+  }
+}
