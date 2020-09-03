@@ -3,7 +3,7 @@ import styles from '../Obedy.module.scss';
 import { IObedyProps } from '../IObedyProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 import InfoBoard from '../InfoBoard';
-import { apiUrl } from '../ApiConstants'
+import { apiUrl } from '../ApiConstants';
 import axios from 'axios';
 import Loading from 'react-loading';
 
@@ -12,8 +12,8 @@ interface IBeQuick {
 }
 
 interface BeQuickState {
-  link: string
-  loaded: boolean
+  link: string;
+  loaded: boolean;
 }
 
 
@@ -23,10 +23,11 @@ export default class BeQuick extends React.Component<IBeQuick, BeQuickState> {
     super(props);
     this.state = {
       link: "https://www.google.sk",
-      loaded: true
-    }
+      loaded: true,
+    };
   }
-  componentDidMount() {
+
+  public componentDidMount() {
     fetch(apiUrl + "bequick")
       .then(response => response.json()
       )

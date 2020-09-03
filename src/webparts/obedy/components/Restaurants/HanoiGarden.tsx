@@ -3,31 +3,39 @@ import styles from '../Obedy.module.scss';
 import { IObedyProps } from '../IObedyProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 import InfoBoard from '../InfoBoard';
-
-export default class HanoiGarden extends React.Component {
-
-
-  private getMenuByDate(type: number): string {
-
-    let weekMap = new Map();
-
-    weekMap.set(1, 'pondelok');
-    weekMap.set(2, 'utorok');
-    weekMap.set(3, 'streda');
-    weekMap.set(4, 'stvrtok');
-    weekMap.set(5, 'piatok');
-
-    const dayNum = new Date(Date.now());
-    const day = weekMap.get(dayNum.getDay());
+import { apiUrl } from '../ApiConstants';
 
 
-    if (type == 1) {
-      return "https://testsnt.sharepoint.com/sites/Obedy/Hanoi_pdf/hanoi_"+day+"_1.pdf#toolbar=0&navpanes=0&scrollbar=0";
-    }
-    else {
-      return "https://testsnt.sharepoint.com/sites/Obedy/Hanoi_pdf/hanoi_"+day+"_2.pdf#toolbar=0&navpanes=0&scrollbar=0";
+interface IHanoi {
 
-    }
+}
+
+interface HanoiState {
+  link: string;
+  loaded: boolean;
+}
+
+export default class HanoiGarden extends React.Component<IHanoi, HanoiState> {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      link: "https://www.google.sk",
+      loaded: true
+    };
+  }
+
+  public componentDidMount() {
+    fetch(apiUrl + "hanoi")
+      .then(response => response.json()
+      )
+      .then(response => {
+        const dayNum = new Date(Date.now());
+        this.setState({
+          link: response[dayNum.getDay().toString()],
+          loaded: false
+        });
+      }).catch(error => console.log(error));
   }
 
   public render(): React.ReactElement {
@@ -44,10 +52,7 @@ export default class HanoiGarden extends React.Component {
             <InfoBoard distance="1,3" link="https://goo.gl/maps/cAL1z435kUgJPgnP6" time="17" />
 
             <div className={styles.column}>
-              <iframe src={this.getMenuByDate(1)} width="100%" height="950px" scrolling="no">
-              </iframe>
-              <iframe src={this.getMenuByDate(2)} width="100%" height="950px" scrolling="no">
-              </iframe>
+              {(this.state.loaded == true) ? (<div></div>) : (<iframe src={this.state.link} width="100%" height="950px" scrolling="no"></iframe>)}
             </div>
           </div>
         </div>

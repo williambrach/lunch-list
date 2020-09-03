@@ -5,7 +5,7 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import InfoBoard from '../InfoBoard';
 import LunchRow from '../LunchRow';
 import axios from 'axios';
-import { apiUrl } from '../ApiConstants'
+import { apiUrl } from '../ApiConstants';
 import ImageGallery from 'react-image-gallery';
 
 interface IOravec {
@@ -42,10 +42,10 @@ export default class Oravec extends React.Component<IOravec, OravecState> {
       menu: this.getMenuItems(),
       loaded: false,
       images: [{ "original": "x", "thumbnail": "x" }]
-    }
+    };
   }
 
-  async getApiCall(url: string): Promise<object> {
+  public async getApiCall(url: string): Promise<object> {
     try {
       const response = await axios.get(url);
       return response;
@@ -54,29 +54,27 @@ export default class Oravec extends React.Component<IOravec, OravecState> {
     }
   }
 
-  parseImages(response) {
+  public parseImages(response) {
     let array = new Array();
     response.forEach(element => {
       let obj = {
         "original": element,
         "thumbnail": element
-      }
+      };
       array.push(obj);
     });
     return array;
   }
 
-  async getMenuItems(): Promise<object> {
-    let response = await this.getApiCall(apiUrl + "oravec")
-    let imagesOfFood = this.parseImages(response['data']['images'])
-    console.log(imagesOfFood)
+  public async getMenuItems(): Promise<object> {
+    let response = await this.getApiCall(apiUrl + "oravec");
+    let imagesOfFood = this.parseImages(response['data']['images']);
     this.setState({
       loaded: true,
       menu: response['data'],
       images: imagesOfFood
-    })
-
-    return response['data']
+    });
+    return response['data'];
   }
 
   public render(): React.ReactElement {
@@ -100,7 +98,7 @@ export default class Oravec extends React.Component<IOravec, OravecState> {
             {(this.state.loaded == true) ? (
 
               this.state.menu['foods'].map((item, index) =>
-                <LunchRow menuNumber={"Menu " + (index + 1)} price={item['price']} menu={item['name']} />
+                <LunchRow key={index} menuNumber={"Menu " + (index + 1)} price={item['price']} menu={item['name']} />
               )
             ) : (
                 <div></div>

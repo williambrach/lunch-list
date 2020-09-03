@@ -5,7 +5,7 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import axios from 'axios';
 import InfoBoard from '../InfoBoard';
 import LunchRow from '../LunchRow';
-import { apiUrl } from '../ApiConstants'
+import { apiUrl } from '../ApiConstants';
 
 interface IRotunda {
 
@@ -13,7 +13,7 @@ interface IRotunda {
 
 interface RotundaState {
   menu?: object;
-  loaded : boolean;
+  loaded: boolean;
 }
 
 export default class Rotunda extends React.Component<IRotunda, RotundaState> {
@@ -22,11 +22,11 @@ export default class Rotunda extends React.Component<IRotunda, RotundaState> {
     super(props);
     this.state = {
       menu: this.getMenuItems(),
-      loaded : false
-    }
+      loaded: false
+    };
   }
 
-  async getApiCall(url: string): Promise<object> {
+  public async getApiCall(url: string): Promise<object> {
     try {
       const response = await axios.get(url);
       return response;
@@ -35,14 +35,13 @@ export default class Rotunda extends React.Component<IRotunda, RotundaState> {
     }
   }
 
-  async getMenuItems() : Promise<object>{
-    let response = await this.getApiCall(apiUrl + "rotunda")
+  public async getMenuItems(): Promise<object> {
+    let response = await this.getApiCall(apiUrl + "rotunda");
     this.setState({
-      loaded : true,
+      loaded: true,
       menu: response['data']
-    })
-    
-    return response['data']
+    });
+    return response['data'];
   }
 
   public render(): React.ReactElement {
@@ -58,14 +57,14 @@ export default class Rotunda extends React.Component<IRotunda, RotundaState> {
             </div>
             <InfoBoard distance="1,2" link="https://goo.gl/maps/aN8X1MZKJr3Ahf8i8" time="14" />
             {(this.state.loaded == true) ? (
-            <LunchRow menuNumber="Polievka" price={null} menu={this.state.menu['soup']} />
+              <LunchRow menuNumber="Polievka" price={null} menu={this.state.menu['soup']} />
             ) : (
-              <div></div>
-            )}
+                <div></div>
+              )}
             {(this.state.loaded == true) ? (
-               
-                this.state.menu['foods'].map((item, index) =>
-                <LunchRow menuNumber={"Menu " + (index + 1)} price={item['price']} menu={item['name']} />
+
+              this.state.menu['foods'].map((item, index) =>
+                <LunchRow key={index} menuNumber={"Menu " + (index + 1)} price={item['price']} menu={item['name']} />
               )
             ) : (
                 <div></div>
