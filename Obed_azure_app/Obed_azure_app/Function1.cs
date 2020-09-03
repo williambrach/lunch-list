@@ -45,17 +45,18 @@ namespace Obed_azure_app
             response = await Rotunda.startCrawlerasync("https://restauracie.sme.sk/restauracia/pizzeria-rotunda_2316-ruzinov_2980");
             break;
           case "bequick":
-            response = await BeQuick.startCrawlerasync();
+            response = await BeQuick.startCrawlerasync("https://ranajky-obedy.sk/obedove-menu/");
             break;
           case "oravec":
             response = await Oravec.startCrawlerasync("https://www.menucka.sk/widget/main/gurmanskydvor/weekmenu");
             break;
           case "yummy":
-            response = await Yummy.startCrawlerasync();
+            response = await Yummy.startCrawlerasync(https://yummycantina.sk/prevadzky/yummy-1/);
           break;
           case "rebecca":
             break;
           case "hanoi":
+          response = await HanoiGarden.startCrawlerasync("http://www.hanoigarden.sk/prievozska.html");
             break;
           default:
             return new BadRequestObjectResult("Wrong get.");

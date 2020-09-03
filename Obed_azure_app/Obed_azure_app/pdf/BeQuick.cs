@@ -12,21 +12,21 @@ namespace Obed_azure_app.pdf
 {
   class BeQuick
   {
-    public static async Task<string> startCrawlerasync()
+    public static async Task<string> startCrawlerasync(string url)
     {
       var httpClient = new HttpClient();
-      var html = await httpClient.GetStringAsync("https://ranajky-obedy.sk/obedove-menu/");
+      var html = await httpClient.GetStringAsync(url);
       var htmlDocument = new HtmlDocument();
       htmlDocument.LoadHtml(html);
       //var ar = htmlDocument.DocumentNode.SelectSingleNode("//*[@class='aio-tooltip 5f501e59ceabc']");
       var list = htmlDocument.DocumentNode.SelectNodes("//div[@class='align-icon']/a[string-length(@href)>0]");
-      string url = "";
+      string pdfURL = "";
       foreach (var obj in list)
       {
-       url = obj.SelectSingleNode(".").Attributes["href"].Value;
+       pdfURL = obj.SelectSingleNode(".").Attributes["href"].Value;
        }
         JObject o = new JObject();
-        o["link"] = url.Replace("http","https") +"#toolbar=0&navpanes=0&scrollbar=0";
+        o["link"] = pdfURL.Replace("http","https") +"#toolbar=0&navpanes=0&scrollbar=0";
         return o.ToString();
     }
   }

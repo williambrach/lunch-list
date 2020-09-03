@@ -10,10 +10,10 @@ namespace Obed_azure_app.pdf
 {
   class Yummy
   {
-    public static async Task<string> startCrawlerasync()
+    public static async Task<string> startCrawlerasync(string url)
     {
       var httpClient = new HttpClient();
-      var html = await httpClient.GetStringAsync("https://yummycantina.sk/prevadzky/yummy-1/");
+      var html = await httpClient.GetStringAsync(url);
       var htmlDocument = new HtmlDocument();
       htmlDocument.LoadHtml(html);
       var ar = htmlDocument.DocumentNode.SelectSingleNode("//*[@class='elementor-flip-box__layer elementor-flip-box__back']");
