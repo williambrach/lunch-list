@@ -3,50 +3,43 @@ import styles from '../Obedy.module.scss';
 import { IObedyProps } from '../IObedyProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 import InfoBoard from '../InfoBoard';
+import { apiUrl } from '../ApiConstants'
 
-export default class Yummy extends React.Component {
+interface IYummy {
 
-  private getUrlWithDates() {
-    const date = new Date(Date.now());
-    var startWeekDate = new Date();
-    var endWeekDate = new Date();
+}
 
-    var day = date.getDate();
-    var weekIndex = date.getDay();
-    
-    startWeekDate.setDate(day - weekIndex + 1)
-    endWeekDate.setDate( startWeekDate.getDate() + 4)
-    
-    var startMonthDate = startWeekDate.getMonth() + 1;
-    var endMonthDate = endWeekDate.getMonth() + 1;
+interface YummyState {
+  link: string
+  loaded: boolean
+}
 
-    var startYearDate = startWeekDate.getFullYear();
-    var endYearDate = endWeekDate.getFullYear();
-    
-    //days
-    var startWeekDay = startWeekDate.getDate();
-    var endWeekDay = endWeekDate.getDate();
-    var spacedStartDay = startWeekDay.toString();
-    var spacedEndDay = endWeekDay.toString();
-    if (spacedStartDay.length == 1) {
-      spacedStartDay = "0" + startWeekDay;
+
+export default class Yummy extends React.Component<IYummy, YummyState> {
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      link: "https://www.google.sk",
+      loaded: true
     }
-    if (spacedEndDay.length == 1) {
-      spacedEndDay = "0" + endWeekDay;
-    }
-    //months
-    var startMonth = startMonthDate.toString();
-    var endMonth = endMonthDate.toString();
-
-    if (startMonth.length == 1) {
-      var spacedStartMonth = "0" + startMonth;
-    }
-    // if (endMonth.length == 1) {
-    //   endMonth = "0" + endMonth;
-    // }
-    let url = "https://yummycantina.sk/wp-content/uploads/" + startYearDate + "/" + spacedStartMonth + "/" + spacedStartDay +"."+startMonth+ ".-" + spacedEndDay + "." + endMonth + "." + endYearDate + "-1.pdf#toolbar=0&navpanes=0&scrollbar=0";
-    return url;
   }
+  componentDidMount() {
+    fetch(apiUrl + "yummy")
+      .then(response => response.json()
+      )
+      .then(response =>
+
+        this.setState({
+          link: response['link'],
+          loaded: false
+        })
+
+      )
+      .catch(error => console.log(error));
+  }
+
 
   public render(): React.ReactElement {
     return (
@@ -62,8 +55,7 @@ export default class Yummy extends React.Component {
             <InfoBoard distance="Hned dole " link="" time="1" />
 
             <div className={styles.column}>
-              <iframe src={this.getUrlWithDates()} width="100%" height="950px" scrolling="no">
-              </iframe>
+              {(this.state.loaded == true) ? (<div></div>) : (<iframe src={this.state.link} width="100%" height="950px" scrolling="no"></iframe>)}
 
             </div>
           </div>

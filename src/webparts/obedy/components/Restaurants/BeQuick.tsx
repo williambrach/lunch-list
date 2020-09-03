@@ -7,38 +7,37 @@ import { apiUrl } from '../ApiConstants'
 import axios from 'axios';
 import Loading from 'react-loading';
 
-interface Ibq {
+interface IBeQuick {
 
 }
 
-interface bqState {
-  linkE: string
-  x : boolean
+interface BeQuickState {
+  link: string
+  loaded: boolean
 }
 
 
-export default class BeQuick extends React.Component<Ibq, bqState> {
+export default class BeQuick extends React.Component<IBeQuick, BeQuickState> {
 
   constructor(props) {
     super(props);
     this.state = {
-      linkE: "https://www.google.sk",
-      x : true
+      link: "https://www.google.sk",
+      loaded: true
     }
-    console.log(this.state.linkE)
   }
   componentDidMount() {
     fetch(apiUrl + "bequick")
       .then(response => response.json()
       )
-      .then(response => 
-        
+      .then(response =>
+
         this.setState({
-          linkE: response['link'],
-        x : false
-      })
-     
-    )
+          link: response['link'],
+          loaded: false
+        })
+
+      )
       .catch(error => console.log(error));
   }
 
@@ -56,8 +55,8 @@ export default class BeQuick extends React.Component<Ibq, bqState> {
             </div>
             <InfoBoard distance="0.6" link="https://goo.gl/maps/tXsTjYeBfm6vU9EX7" time="8" />
             <div className={styles.column}>
-              {(this.state.x == true) ? (<div></div>) : (<iframe src={this.state.linkE} width="100%" height="950px" scrolling="no"></iframe>)}
-              
+              {(this.state.loaded == true) ? (<div></div>) : (<iframe src={this.state.link} width="100%" height="950px" scrolling="no"></iframe>)}
+
 
             </div>
           </div>

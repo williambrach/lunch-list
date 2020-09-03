@@ -18,7 +18,7 @@ namespace Obed_azure_app.pdf
       htmlDocument.LoadHtml(html);
       var ar = htmlDocument.DocumentNode.SelectSingleNode("//*[@class='elementor-flip-box__layer elementor-flip-box__back']");
       JObject o = new JObject();
-      o["link"] = ar.Attributes["href"].Value;
+      o["link"] = ar.Attributes["href"].Value + "#toolbar=0&navpanes=0&scrollbar=0";
       return o.ToString();
     }
   }
