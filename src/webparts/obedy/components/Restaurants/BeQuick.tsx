@@ -3,50 +3,43 @@ import styles from '../Obedy.module.scss';
 import { IObedyProps } from '../IObedyProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 import InfoBoard from '../InfoBoard';
+import { apiUrl } from '../ApiConstants'
+import axios from 'axios';
+import Loading from 'react-loading';
 
-export default class BeQuick extends React.Component {
+interface Ibq {
 
-  private getUrlWithDates() {
-    const date = new Date(Date.now());
-    var startWeekDate = new Date();
-    var endWeekDate = new Date();
+}
 
-    var day = date.getDate();
-    var weekIndex = date.getDay();
-    
-    startWeekDate.setDate(day - weekIndex + 1)
-    endWeekDate.setDate( startWeekDate.getDate() + 4)
-    
-    var startMonthDate = startWeekDate.getMonth() + 1;
-    var endMonthDate = endWeekDate.getMonth() + 1;
+interface bqState {
+  linkE: string
+  x : boolean
+}
 
-    //var startYearDate = startWeekDate.getFullYear() + 1;
-    var endYearDate = endWeekDate.getFullYear();
-    
-    //days
-    var startWeekDay = startWeekDate.getDate();
-    var endWeekDay = endWeekDate.getDate();
-    var spacedStartDay = startWeekDay.toString();
-    var spacedEndDay = endWeekDay.toString();
-    if (spacedStartDay.length == 1) {
-      spacedStartDay = "0" + startWeekDay;
+
+export default class BeQuick extends React.Component<Ibq, bqState> {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      linkE: "https://www.google.sk",
+      x : true
     }
-    if (spacedEndDay.length == 1) {
-      spacedEndDay = "0" + endWeekDay;
-    }
-    //months
-    var startMonth = startMonthDate.toString();
-    var endMonth = endMonthDate.toString();
-
-    if (startMonth.length == 1) {
-      startMonth = "0" + startMonth;
-    }
-    if (endMonth.length == 1) {
-      endMonth = "0" + endMonth;
-    }
-    
-    let url = "https://ranajky-obedy.sk/wp-content/uploads/Obedov%c3%a9-menu-" + spacedStartDay + "." + startMonth + ".-" + spacedEndDay + "." + endMonth + "." + endYearDate + ".pdf#toolbar=0&navpanes=0&scrollbar=0";
-    return url;
+    console.log(this.state.linkE)
+  }
+  componentDidMount() {
+    fetch(apiUrl + "bequick")
+      .then(response => response.json()
+      )
+      .then(response => 
+        
+        this.setState({
+          linkE: response['link'],
+        x : false
+      })
+     
+    )
+      .catch(error => console.log(error));
   }
 
 
@@ -63,8 +56,9 @@ export default class BeQuick extends React.Component {
             </div>
             <InfoBoard distance="0.6" link="https://goo.gl/maps/tXsTjYeBfm6vU9EX7" time="8" />
             <div className={styles.column}>
-              <iframe src={this.getUrlWithDates()} width="100%" height="950px" scrolling="no">
-              </iframe>
+              {(this.state.x == true) ? (<div></div>) : (<iframe src={this.state.linkE} width="100%" height="950px" scrolling="no"></iframe>)}
+              
+
             </div>
           </div>
         </div>
