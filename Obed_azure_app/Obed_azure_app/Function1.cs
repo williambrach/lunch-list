@@ -32,34 +32,34 @@ namespace Obed_azure_app
       name = name ?? data?.name;
 
       string response = null;
+        switch (name.ToLower())
+        {
+          case "veglife":
+            response = await Veglife.startCrawlerasync("https://restauracie.sme.sk/restauracia/veg-life-prievozska_8702-ruzinov_2980");
+            break;
+          case "mlyn":
+            response = await Mlyn.startCrawlerasync("https://restauracie.sme.sk/restauracia/mlyn-restaurant_1745-ruzinov_2980");
+            break;
+          case "rotunda":
+            response = await Rotunda.startCrawlerasync("https://restauracie.sme.sk/restauracia/pizzeria-rotunda_2316-ruzinov_2980");
+            break;
+          case "bequick":
+            response = await BeQuick.BeQuick.startCrawlerasync();
+            break;
+          case "oravec":
+            response = await Oravec.startCrawlerasync("https://www.menucka.sk/widget/main/gurmanskydvor/weekmenu");
+            break;
+          case "yummy":
+            break;
+          case "rebecca":
+            break;
+          case "hanoi":
+            break;
+          default:
+            return new BadRequestObjectResult("Wrong get.");
+            break;
+        }
 
-      switch (name.ToLower())
-      {
-        case "veglife":
-          response = await Veglife.startCrawlerasync("https://restauracie.sme.sk/restauracia/veg-life-prievozska_8702-ruzinov_2980");
-          break;
-        case "mlyn":
-          response = await Mlyn.startCrawlerasync("https://restauracie.sme.sk/restauracia/mlyn-restaurant_1745-ruzinov_2980");
-          break;
-        case "rotunda":
-          response = await Rotunda.startCrawlerasync("https://restauracie.sme.sk/restauracia/pizzeria-rotunda_2316-ruzinov_2980");
-          break;
-        case "bequick":
-          response = await BeQuick.BeQuick.startCrawlerasync();
-          break;
-        case "oravec":
-          break;
-        case "yummy":
-          break;
-        case "rebecca":
-          break;
-        case "hanoi":
-          break;
-        default:
-          return new BadRequestObjectResult("Wrong get.");
-          break;
-
-      }
       return new OkObjectResult(response);
 
     }
