@@ -51,7 +51,7 @@ namespace Obed_azure_app
             response = await Oravec.startCrawlerasync("https://www.menucka.sk/widget/main/gurmanskydvor/weekmenu");
             break;
           case "yummy":
-            response = await Yummy.startCrawlerasync(https://yummycantina.sk/prevadzky/yummy-1/);
+            response = await Yummy.startCrawlerasync("https://yummycantina.sk/prevadzky/yummy-1/");
           break;
           case "rebecca":
             break;

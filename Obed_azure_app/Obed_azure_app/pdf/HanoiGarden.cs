@@ -26,15 +26,15 @@ namespace Obed_azure_app.pdf
 
       Dictionary<string, string> imgs = new Dictionary<string, string>();
       var images = htmlDocument.DocumentNode.SelectSingleNode("//*[@title='Obedové menu pondelok 1']");
-      imgs.Add("1", "https://www.hanoigarden.sk/" + images.Attributes["src"].Value.Trim());
+      imgs.Add("1", "https://www.hanoigarden.sk/" + images.Attributes["src"].Value.Trim().Replace("jpg","pdf") +"#toolbar=0&navpanes=0&scrollbar=0") ; 
       images = htmlDocument.DocumentNode.SelectSingleNode("//*[@title='Obedové menu utorok 1']");
-      imgs.Add("2", "https://www.hanoigarden.sk/" + images.Attributes["src"].Value.Trim());
+      imgs.Add("2", "https://www.hanoigarden.sk/" + images.Attributes["src"].Value.Trim().Replace("jpg", "pdf") + "#toolbar=0&navpanes=0&scrollbar=0");
       images = htmlDocument.DocumentNode.SelectSingleNode("//*[@title='Obedové menu streda 1']");
-      imgs.Add("3", "https://www.hanoigarden.sk/" + images.Attributes["src"].Value.Trim());
-      images = htmlDocument.DocumentNode.SelectSingleNode("//*[@title='Obedové menu štvrtok 1']");
-      imgs.Add("4", "https://www.hanoigarden.sk/" + images.Attributes["src"].Value.Trim());
-      images = htmlDocument.DocumentNode.SelectSingleNode("//*[@title='Obedové menu piatok 1']");
-      imgs.Add("5", "https://www.hanoigarden.sk/" + images.Attributes["src"].Value.Trim());
+      imgs.Add("3", "https://www.hanoigarden.sk/" + images.Attributes["src"].Value.Trim().Replace("jpg", "pdf") + "#toolbar=0&navpanes=0&scrollbar=0");
+      images = htmlDocument.DocumentNode.SelectSingleNode("//*[@title='Obedové menu štvrtok 1']" );
+      imgs.Add("4", "https://www.hanoigarden.sk/" + images.Attributes["src"].Value.Trim().Replace("jpg", "pdf") + "#toolbar=0&navpanes=0&scrollbar=0");
+      images = htmlDocument.DocumentNode.SelectSingleNode("//*[@title='Obedové menu piatok 1']" );
+      imgs.Add("5", "https://www.hanoigarden.sk/" + images.Attributes["src"].Value.Trim().Replace("jpg", "pdf") + "#toolbar=0&navpanes=0&scrollbar=0");
 
 
       string json = JsonConvert.SerializeObject(imgs);
