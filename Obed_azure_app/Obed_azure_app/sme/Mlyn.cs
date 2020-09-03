@@ -34,9 +34,6 @@ namespace Obed_azure_app.sme
         {
           soup = innerText;
         }
-        else if (count == divs.Count)
-        {
-        }
         else if (count != 0)
         {
 
