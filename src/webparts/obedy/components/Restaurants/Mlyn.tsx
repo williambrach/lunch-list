@@ -5,7 +5,7 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import InfoBoard from '../InfoBoard';
 import LunchRow from '../LunchRow';
 import axios from 'axios';
-import { apiUrl } from '../ApiConstants'
+import { apiUrl } from '../ApiConstants';
 
 interface IMlyn {
 
@@ -13,7 +13,7 @@ interface IMlyn {
 
 interface MlynState {
   menu?: object;
-  loaded : boolean;
+  loaded: boolean;
 }
 
 export default class Mlyn extends React.Component<IMlyn, MlynState> {
@@ -23,11 +23,11 @@ export default class Mlyn extends React.Component<IMlyn, MlynState> {
     super(props);
     this.state = {
       menu: this.getMenuItems(),
-      loaded : false
-    }
+      loaded: false
+    };
   }
 
-  async getApiCall(url: string): Promise<object> {
+  public async getApiCall(url: string): Promise<object> {
     try {
       const response = await axios.get(url);
       return response;
@@ -36,14 +36,13 @@ export default class Mlyn extends React.Component<IMlyn, MlynState> {
     }
   }
 
-  async getMenuItems() : Promise<object>{
-    let response = await this.getApiCall(apiUrl + "mlyn")
+  public async getMenuItems(): Promise<object> {
+    let response = await this.getApiCall(apiUrl + "mlyn");
     this.setState({
-      loaded : true,
+      loaded: true,
       menu: response['data']
-    })
-    
-    return response['data']
+    });
+    return response['data'];
   }
 
 
@@ -60,14 +59,14 @@ export default class Mlyn extends React.Component<IMlyn, MlynState> {
             </div>
             <InfoBoard distance="1,3" link="https://goo.gl/maps/6gP8a5RPohSgdSDj8" time="16" />
             {(this.state.loaded == true) ? (
-            <LunchRow menuNumber="Polievka" price={null} menu={this.state.menu['soup']} />
+              <LunchRow menuNumber="Polievka" price={null} menu={this.state.menu['soup']} />
             ) : (
-              <div></div>
-            )}
+                <div></div>
+              )}
             {(this.state.loaded == true) ? (
-               
-                this.state.menu['foods'].map((item, index) =>
-                <LunchRow menuNumber={"Menu " + (index + 1)} price={item['price']} menu={item['name']} />
+
+              this.state.menu['foods'].map((item, index) =>
+                <LunchRow key={index} menuNumber={"Menu " + (index + 1)} price={item['price']} menu={item['name']} />
               )
             ) : (
                 <div></div>

@@ -3,15 +3,15 @@ import styles from '../Obedy.module.scss';
 import { IObedyProps } from '../IObedyProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 import InfoBoard from '../InfoBoard';
-import { apiUrl } from '../ApiConstants'
+import { apiUrl } from '../ApiConstants';
 
 interface IYummy {
 
 }
 
 interface YummyState {
-  link: string
-  loaded: boolean
+  link: string;
+  loaded: boolean;
 }
 
 
@@ -23,21 +23,18 @@ export default class Yummy extends React.Component<IYummy, YummyState> {
     this.state = {
       link: "https://www.google.sk",
       loaded: true
-    }
+    };
   }
-  componentDidMount() {
+
+  public componentDidMount() {
     fetch(apiUrl + "yummy")
       .then(response => response.json()
       )
       .then(response =>
-
         this.setState({
           link: response['link'],
           loaded: false
-        })
-
-      )
-      .catch(error => console.log(error));
+        })).catch(error => console.log(error));
   }
 
 

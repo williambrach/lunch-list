@@ -13,7 +13,7 @@ interface ILunchBoard {
 
 export default class InfoBoard extends React.Component<ILunchBoard> {
 
-    getMenuString(): string {
+    public getMenuString(): string {
         let menuString: string;
         let menu = this.props.menu;
         let price = "";
@@ -21,7 +21,7 @@ export default class InfoBoard extends React.Component<ILunchBoard> {
             price = this.props.price + " " + "€";
         }
         menuString = menu;
-        return menuString
+        return menuString;
     }
 
     public render(): React.ReactElement {
